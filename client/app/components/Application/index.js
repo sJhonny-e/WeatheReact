@@ -11,7 +11,7 @@ import DayForecast from '../DayForecast';
 import styles from './style';
 
 //fake data for now
-let forecasts = [{"dayOffset":"0","high":"16","low":"7","desc":"Partly Cloudy"},{"dayOffset":"1","high":"18","low":"8","desc":"Mostly Cloudy"},{"dayOffset":"2","high":"19","low":"11","desc":"Mostly Sunny"},{"dayOffset":"3","high":"15","low":"9","desc":"T-Storms"}];
+let forecasts = [{"dayOffset":0,"high":16,"low":7,"desc":"Partly Cloudy"},{"dayOffset":1,"high":18,"low":8,"desc":"Mostly Cloudy"},{"dayOffset":2,"high":19,"low":11,"desc":"Mostly Sunny"},{"dayOffset":3,"high":15,"low":9,"desc":"T-Storms"}];
 let averages = {"high":20,"low":9};
 
 const Application = () => {
