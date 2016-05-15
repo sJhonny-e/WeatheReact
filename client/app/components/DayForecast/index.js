@@ -9,21 +9,24 @@ import React from 'react';
 import styles from './style';
 
 
-const DayForecast = () => {
-  return <header className={styles.main}>
-	<h1 className={styles.title}>Some day</h1>
+class DayForecast extends React.Component {
+  render() {
+	  let forecast = this.props.forecast;
+	  return <header className={styles.main}>
+		<h1 className={styles.title}>Some day</h1>
 
-    <div className={styles.wrap}>
-      <ul>
-      	<li>Some description</li>
-      	<li>some high</li>
-      	<li>some low</li>
-      </ul>
-      
-    </div>
-  </header>;
-};
+	    <div className={styles.wrap}>
+	      <ul>
+	      	<li>{forecast.desc}</li>
+	      	<li>high: {forecast.high}</li>
+	      	<li>low: {forecast.low}</li>
+	      </ul>
+	      
+	    </div>
+	  </header>;
+  }
+}
 
-DayForecast.displayName = 'DayForecast';
+// DayForecast.displayName = 'DayForecast';
 
 export default DayForecast;
