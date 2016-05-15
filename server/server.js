@@ -2,17 +2,20 @@
 const express = require('express');
 const app = express();
 // Further Configuration here...
-const WeatherRepository = require('./repository/weatherRepository').WeatherRepository;
-const repository = new WeatherRepository();
+
+const WeatherService = require('./services/weatherService').WeatherService;
+var service = new WeatherService();
 
 // routes
 app.get('/api/weather/:location', function (req, res) {
   let location = req.params.location;
-  let daysAhead = req.query.daysAhead || 0;
-  repository.getWeather(location, daysAhead)
-	  .then(function(result) {
-	  	res.send(result);
-	  });
+  let daysAhead = Number.parseInt(req.query.daysAhead) || 3;
+  let historyLengthDays = req.query.history || 28;
+
+  service.getTemperaturesWithDifferences(location, daysAhead, historyLengthDays)
+  	.then(function(result) {
+  		res.send(result);
+  	});
 });
 
 
