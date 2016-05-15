@@ -8,12 +8,14 @@ import React from 'react';
  */
 import styles from './style';
 
+const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 class DayForecast extends React.Component {
-  render() {
+
+  render = function() {
 	  let forecast = this.props.forecast;
 	  return <header className={styles.main}>
-		<h1 className={styles.title}>Some day</h1>
+		<h1 className={styles.title}>{ this._getDay() }</h1>
 
 	    <div className={styles.wrap}>
 	      <ul>
@@ -24,6 +26,15 @@ class DayForecast extends React.Component {
 	      
 	    </div>
 	  </header>;
+  }
+
+  _getDay() {
+  	if (this.props.forecast.dayOffset === 0)
+  		return 'Today';
+
+  	let date = new Date();
+  	date.setDate(date.getDate() + this.props.forecast.dayOffset);
+  	return DAYS_OF_WEEK[date.getDay()];
   }
 }
 
