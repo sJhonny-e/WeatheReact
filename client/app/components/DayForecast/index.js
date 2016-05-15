@@ -1,4 +1,5 @@
 import React from 'react';
+import Temperature from './Temperature';
 
 /**
  * Import locally scoped styles using css-loader
@@ -14,14 +15,15 @@ class DayForecast extends React.Component {
 
   render = function() {
 	  let forecast = this.props.forecast;
+	  let averages = this.props.averages;
 	  return <header className={styles.main}>
 		<h1 className={styles.title}>{ this._getDay() }</h1>
 
 	    <div className={styles.wrap}>
 	      <ul>
 	      	<li>{forecast.desc}</li>
-	      	<li>high: {forecast.high}</li>
-	      	<li>low: {forecast.low}</li>
+	      	<li><Temperature type="High" val={forecast.high} average={averages.high} /></li>
+	      	<li><Temperature type="Low" val={forecast.low} average={averages.low} /></li>
 	      </ul>
 	      
 	    </div>
