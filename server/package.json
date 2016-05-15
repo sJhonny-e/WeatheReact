@@ -1,0 +1,17 @@
+{
+  "name": "WeatheReact",
+  "version": "0.0.0",
+  "description": "My React thingie",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "author": "Jhonny",
+  "dependencies": {
+    "express" : "latest"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
