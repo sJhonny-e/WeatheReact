@@ -18,4 +18,8 @@ class WeatherRepository {
 	}
 }
 
-export default WeatherRepository;
+export default {
+	createWeatherRepository(...args) {
+		return new WeatherRepository(...args);
+	}
+};

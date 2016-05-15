@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../Header';
 import DayForecast from '../DayForecast';
-import WeatherRepository from './WeatherRepository';
+import WeatherRepositoryFactory from './WeatherRepository';
 
 /**
  * Import locally scoped styles using css-loader
@@ -14,7 +14,7 @@ import styles from './style';
 class Application extends React.Component {
   constructor() {
   	super();
-	this.repository = new WeatherRepository();
+	this.repository = WeatherRepositoryFactory.createWeatherRepository();
 	this.state = {forecasts: [], averages: {}};
   }
 
