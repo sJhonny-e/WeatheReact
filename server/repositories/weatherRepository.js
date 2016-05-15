@@ -10,7 +10,10 @@ class WeatherRepository {
 	getWeather(locationCode, daysAhead) {
 		return requestify.get(`${baseUrl}/${locationCode}?${queryStringOptions}&dayf=${daysAhead + 1}`)
 			.then(function(res) {
-				let fullResult = parser.toJson(res.body, { object: true });
+				let fullResult = parser.toJson(res.body, { 
+					object: true,
+					coerce: true 
+				});
 
 				//now parsing the JSON to return just the fields we're interested in
 				let daysArr = fullResult.weather.dayf.day;
@@ -19,7 +22,7 @@ class WeatherRepository {
 						dayOffset: day.d,
 						high: day.hi,
 						low: day.low ,
-						desc: day.part[0].t
+						desc: day.part[0].t.length? day.part[0].t : day.part[1].t
 					}
 				});
 			});
