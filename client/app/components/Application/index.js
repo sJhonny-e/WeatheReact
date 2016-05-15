@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../Header';
 import DayForecast from '../DayForecast';
 import WeatherRepositoryFactory from './WeatherRepository';
 
