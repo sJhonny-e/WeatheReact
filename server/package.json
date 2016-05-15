@@ -4,7 +4,7 @@
   "description": "My React thingie",
   "main": "index.js",
   "scripts": {
-    
+    "start" : "node server.js"
   },
   "author": "Jhonny",
   "dependencies": {
