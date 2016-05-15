@@ -31,7 +31,7 @@ class Application extends React.Component {
 
 	return <div className={styles.main}>
 	{ forecasts.map(f => {
-	    return <div className={styles.wrap}>
+	    return <div key={f.dayOffset} className={styles.wrap}>
 	    	<DayForecast forecast = {f} averages= {averages}/>
 	    </div>
 	})}
