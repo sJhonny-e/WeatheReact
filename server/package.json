@@ -4,11 +4,13 @@
   "description": "My React thingie",
   "main": "index.js",
   "scripts": {
-    "start" : "node server.js"
+    "start": "node server.js"
   },
   "author": "Jhonny",
   "dependencies": {
-    "express" : "latest"
+    "express": "latest",
+    "requestify": "^0.1.17",
+    "xml2json": "^0.9.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
