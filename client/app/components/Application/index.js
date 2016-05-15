@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../Header';
 import DayForecast from '../DayForecast';
+import WeatherRepository from './WeatherRepository';
 
 /**
  * Import locally scoped styles using css-loader
@@ -10,18 +11,32 @@ import DayForecast from '../DayForecast';
  */
 import styles from './style';
 
-//fake data for now
-let forecasts = [{"dayOffset":0,"high":16,"low":7,"desc":"Partly Cloudy"},{"dayOffset":1,"high":18,"low":8,"desc":"Mostly Cloudy"},{"dayOffset":2,"high":19,"low":11,"desc":"Mostly Sunny"},{"dayOffset":3,"high":15,"low":9,"desc":"T-Storms"}];
-let averages = {"high":20,"low":9};
+class Application extends React.Component {
+  constructor() {
+  	super();
+	this.repository = new WeatherRepository();
+	this.state = {forecasts: [], averages: {}};
+  }
 
-const Application = () => {
-  return <div className={styles.main}>
-    { forecasts.map(f => {
+  componentDidMount = function() {
+  	this.repository.getWeather('UKXX0085', 4)
+  		.then((data) => {
+  			this.setState({forecasts: data.forecast, averages: data.averages});
+  		});
+  }
+
+  render = function() {
+  	const forecasts = this.state.forecasts;
+  	const averages = this.state.averages;	
+
+	return <div className={styles.main}>
+	{ forecasts.map(f => {
 	    return <div className={styles.wrap}>
 	    	<DayForecast forecast = {f} averages= {averages}/>
 	    </div>
-    })}
-  </div>;
+	})}
+	</div>;
+  }
 };
 
 Application.displayName = 'Application';
