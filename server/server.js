@@ -23,14 +23,12 @@ app.get('/api/weather/:location', function (req, res) {
   let historyLengthDays = req.query.history || 28;
 
   service.getTemperaturesWithDifferences(location, daysAhead, historyLengthDays)
-  	.then(function(result) {
-  		res.send(result);
-  	});
+  	.then(res.send.bind(res));
 });
 
 
 function start() {
-  //routes.setup(app, handlers);
+  
   let port = process.env.PORT || 3000;
   app.listen(port, function() {
   	console.log("Express server listening on port %d in %s mode", port, app.settings.env);

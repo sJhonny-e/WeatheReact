@@ -6,6 +6,7 @@ const minLow = 5;
 const maxLow = 15;
 
 class RandomHistoricalWeatherRepository {
+	//TODO: get this from an actual database; possibly using mongoose or some ORM
 	getHistoricalWeather(location, daysBack) {
 		var temps = [];
 		for (var i = 0; i < daysBack; i++) {
