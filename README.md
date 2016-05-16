@@ -53,3 +53,4 @@ This is just a proof-of-concept little project; to scale it and make it more mai
 * Add the option for the user to choose a location and timeframe - this functionality is already implemented by the server; just need to add the options to choose locations and time frames on the client side.  
 * Better way to mock dependencies - Currently there's an awkward and ugly way in which we mock the `WeatherRepository` when testing the `Application` component. This needs to change to a less intrusive way of mocking dependency modules.  
 * Test the `WeatherRepository` by mocking `$.http`
+* Clean up the dependency list to make it a bit more sane (currently it takes ~10 minutes to install, and has over 100K files!!)
