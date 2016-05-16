@@ -1,7 +1,7 @@
 import React from 'react';
 import DayForecast from '../index.js';
 import styles from '../style.sass';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 
 describe('DayForecast', function() {
@@ -10,7 +10,6 @@ describe('DayForecast', function() {
 
 	it('displays the component', () => {
 		const dayForecast = shallow(<DayForecast forecast={forecast} averages={averages}/>);
-
     	expect(dayForecast.find(`.${styles.main}`)).to.have.length(1);
 	});
 
@@ -24,4 +23,6 @@ describe('DayForecast', function() {
     	expect(dayForecast.find('Temperature[type="Low"][val=7][average=12]')).to.have.length(1);
     	expect(dayForecast.find('Temperature[type="High"][val=5][average=15]')).to.have.length(1);
 	});
+
+	// TODO: tests for 'today', 'Sunday' etc..
 });

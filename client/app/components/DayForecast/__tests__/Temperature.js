@@ -26,7 +26,7 @@ describe('Temperature', function() {
 		expect(temperature.find(`span`).last().text()).to.eql('(-2)');
 	});
 
-	it('displays a plus value when difference is negative', () => {
+	it('displays a plus value when difference is positive', () => {
 		const temperature = createTemperature({val: 13});
 		expect(temperature.find(`span`).last().text()).to.eql('(+3)');
 	});
